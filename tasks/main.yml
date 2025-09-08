@@ -1,0 +1,77 @@
+---
+# EXTENSIONS
+# ----------
+# - Remote Explorer (Microsoft)
+# - YAML (RedHat)
+# - Meld Diff
+# - Microsoft Edge Tools
+
+- name: vscode role
+  tags:
+    - vscode
+  block:
+  
+  # mkdir
+  - name: Make sure directory /etc/apt/keyrings exists
+    become: true
+    ansible.builtin.file:
+      path: "/etc/apt/keyrings"
+      mode: u=rwx,g=rx,o=rx
+      state: directory
+      
+  # repo key
+  - name: Copy repo key
+    become: true
+    ansible.builtin.copy:
+      src: microsoft-vscode.gpg
+      dest: "/etc/apt/keyrings/microsoft-vscode.gpg"
+      owner: root
+      group: root
+      mode: u=rw,g=r,o=r
+
+  # repo file
+  - name: Copy microsoft repo file
+    become: true
+    ansible.builtin.copy:
+      src: microsoft-vscode.list
+      dest: /etc/apt/sources.list.d/microsoft-vscode.list
+      owner: root
+      group: root
+      mode: u=rw,g=r,o=r
+    register: add_repo
+  
+  # apt-update
+  - when: add_repo.changed
+    name: Update apt cache
+    become: true
+    ansible.builtin.apt:
+      update_cache: true
+  
+  # install
+  - name: Install vscode
+    become: true
+    ansible.builtin.apt:
+      state: present
+      name: code
+  
+  # vscode.config.settings
+  - when: vscode.config.settings != None
+    name: Copy {{ vscode.config.settings }}
+    become: true
+    ansible.builtin.copy:
+      src: "{{ vscode.config.settings }}"
+      dest: "/home/{{ vscode.user }}/.config/Code/User/settings.json"
+      owner: "{{ vscode.user }}"
+      group: "{{ vscode.user }}"
+      mode: u=rw,g=,o=
+
+  # vscode.config.settings
+  - when: vscode.config.keybindings != None
+    name: Copy {{ vscode.config.keybindings }}
+    become: true
+    ansible.builtin.copy:
+      src: "{{ vscode.config.keybindings }}"
+      dest: "/home/{{ vscode.user }}/.config/Code/User/keybindings.json"
+      owner: "{{ vscode.user }}"
+      group: "{{ vscode.user }}"
+      mode: u=rw,g=,o=

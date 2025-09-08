@@ -1,0 +1,6 @@
+---
+vscode:
+  user:
+  config:
+    keybindings: frida/keybindings.json
+    settings: frida/settings.json
