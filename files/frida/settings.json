@@ -1,0 +1,196 @@
+{
+	/* 
+	JAVASCRIPT
+	------------- */
+	"javascript.preferences.quoteStyle": "single",
+	"[javascript]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features"
+		//"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	/* 
+	TYPESCRIPT 
+	------------- */
+	"typescript.inlayHints.parameterNames.enabled": "all", // show the names of parameters in function calls
+	"typescript.inlayHints.propertyDeclarationTypes.enabled": true, // show the type of class properties that don't have an explicit type annotation
+	"typescript.inlayHints.variableTypes.enabled": true, // show the types of variables that don't have explicit type annotations.
+	"typescript.inlayHints.parameterTypes.enabled": true, // show the types of implicitly typed parameters
+	"typescript.inlayHints.functionLikeReturnTypes.enabled": true, // show the return types of functions that don't have an explicit type annotation
+	"[typescript]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features"
+	},
+	"[typescriptreact]": {
+		"editor.defaultFormatter": "vscode.typescript-language-features"
+	},
+	/* 
+	HTML
+	------- */
+	"[html]": {
+		"editor.defaultFormatter": "vscode.html-language-features"
+		//"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"html.format.wrapAttributes": "preserve",
+	"html.format.wrapLineLength": 0,
+	/* 
+	XML
+	------ */
+	"[xml]": {
+		"editor.defaultFormatter": "redhat.vscode-xml"
+	},
+	/* 
+	CSS
+	------ */
+	"[css]": {
+		"editor.defaultFormatter": "vscode.css-language-features"
+	},
+	/* 
+	SHELL SCRIPT
+ 	--------------- */
+	"[shellscript]": {
+		"editor.defaultFormatter": "shakram02.bash-beautify"
+	},
+	/* 
+	MARKDOWN
+	----------- */
+	"markdown.styles": [],
+	/* 
+	JSON
+	------- */
+	"[json]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
+	},
+	"[jsonc]": {
+		"editor.defaultFormatter": "vscode.json-language-features"
+	},
+	/* 
+	SVG 
+	------ */
+	"[svg]": {
+		"editor.defaultFormatter": "redhat.vscode-xml"
+	},
+	/* 
+	EXPLORER
+	----------- */
+	"explorer.confirmDragAndDrop": false,
+	"explorer.sortOrder": "default",
+	"explorer.autoReveal": false,
+	"explorer.confirmDelete": false,
+	/* 
+	EDITOR
+	--------- */
+	// render
+	"editor.renderWhitespace": "none",
+	"editor.renderControlCharacters": true,
+	// tabs & spaces
+	"editor.tabCompletion": "on",
+	"editor.tabSize": 4,
+	"editor.insertSpaces": false,
+	"editor.detectIndentation": false,
+	// folding
+	"editor.showFoldingControls": "mouseover",
+	"editor.folding": true,
+	"editor.foldingStrategy": "auto",
+	// minimap
+	"editor.minimap.enabled": false,
+	// cursor
+	"editor.cursorSmoothCaretAnimation": "off",
+	// hints & suggestions
+	"editor.inlayHints.enabled": "on",
+	"editor.acceptSuggestionOnEnter": "on",
+	"editor.suggestOnTriggerCharacters": true,
+	"editor.quickSuggestions": { // Controls whether suggestions should automatically show up while typing.
+		"other": true,
+		"comments": false,
+		"strings": true,
+	},
+	"workbench.editor.enablePreview": true,
+	"workbench.editor.enablePreviewFromQuickOpen": true,
+	"workbench.list.openMode": "singleClick",
+	/* 
+	FILES
+	-------- */
+	"files.autoSave": "off",
+	"files.exclude": {
+		"**/.not_used": true,
+		"**/.Trash-*": true,
+		"**/#recycle": true
+	},
+	"files.associations": {
+		"*.webc": "html"
+	},
+	"files.trimFinalNewlines": true,
+	"files.defaultLanguage": "ini",
+	/* 
+	SEARCH
+	--------- */
+	"search.exclude": {},
+	/* 
+	TERMINAL
+	----------- */
+	"terminal.integrated.defaultProfile.linux": "JavaScript Debug Terminal",
+	/* If you have disabled the editor.quickSuggestions setting, you won't see suggestions as you type.
+	You can still trigger suggestions manually by pressing Ctrl+Space and see the preview. */
+	/* 
+	DEBUG
+	-------- */
+	"debug.javascript.terminalOptions": {
+		"smartStep": false,
+		"skipFiles": [
+			"<node_internals>/**"
+		],
+	},
+	/* 
+	DIFF
+	------- */
+	"diffEditor.ignoreTrimWhitespace": false,
+	/* 
+	NPM
+	------ */
+	"npm.enableRunFromFolder": false,
+	/* 
+	GITHUB
+	--------- */
+	"github.gitAuthentication": false,
+	/* 
+	GIT
+	------ */
+	"git.confirmSync": false,
+	"git.repositoryScanMaxDepth": -1,
+	"git.openRepositoryInParentFolders": "never",
+	/* 
+	MISC
+	------- */
+	"redhat.telemetry.enabled": false,
+	"telemetry.telemetryLevel": "off",
+	"l13Diff.ignoreEndOfLine": false,
+	"l13Diff.ignoreTrimWhitespace": "on",
+	"l13Diff.ignoreByteOrderMark": false,
+	"l13Diff.confirmCopy": false,
+	"l13Diff.exclude": [
+		"**/.DS_Store",
+		"**/.git",
+		"**/.hg",
+		"**/.svn",
+		"**/CVS",
+		"**/node_modules",
+		"*.html"
+	],
+	/* 
+	EXT: PRETTIER
+	---------------- */
+	"prettier.tabWidth": 4,
+	/* 
+	EXT: SSH
+	-------------- */
+	"remote.SSH.useLocalServer": true,
+	"remote.SSH.enableRemoteCommand": true,
+	"remote.SSH.enableX11Forwarding": false,
+	/* 
+	EXT: SHELLCHECK
+	---------------------- */
+	"shellcheck.logLevel": "warn",
+	"shellcheck.exclude": [
+		"2317"
+	],
+	"vscode-edge-devtools.headless": false,
+	"liveServer.settings.donotShowInfoMsg": true,
+}
