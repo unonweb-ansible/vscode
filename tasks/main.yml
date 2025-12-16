@@ -1,11 +1,4 @@
 ---
-# EXTENSIONS
-# ----------
-# - Remote Explorer (Microsoft)
-# - YAML (RedHat)
-# - Meld Diff
-# - Microsoft Edge Tools
-
 - name: vscode role
   tags:
     - vscode
@@ -38,10 +31,10 @@
       owner: root
       group: root
       mode: u=rw,g=r,o=r
-    register: add_repo
+    register: __vscode_repo
   
   # apt-update
-  - when: add_repo.changed
+  - when: __vscode_repo.changed
     name: Update apt cache
     become: true
     ansible.builtin.apt:
@@ -55,23 +48,23 @@
       name: code
   
   # vscode.config.settings
-  - when: vscode.config.settings != None
-    name: Copy {{ vscode.config.settings }}
+  - when: vscode_settings != None
+    name: Copy {{ vscode_settings }}
     become: true
     ansible.builtin.copy:
-      src: "{{ vscode.config.settings }}"
-      dest: "/home/{{ vscode.user }}/.config/Code/User/settings.json"
-      owner: "{{ vscode.user }}"
-      group: "{{ vscode.user }}"
+      src: "{{ vscode_settings }}"
+      dest: "/home/{{ vscode_user }}/.config/Code/User/settings.json"
+      owner: "{{ vscode_user }}"
+      group: "{{ vscode_user }}"
       mode: u=rw,g=,o=
 
   # vscode.config.settings
-  - when: vscode.config.keybindings != None
-    name: Copy {{ vscode.config.keybindings }}
+  - when: vscode_keybindings != None
+    name: Copy {{ vscode_keybindings }}
     become: true
     ansible.builtin.copy:
-      src: "{{ vscode.config.keybindings }}"
-      dest: "/home/{{ vscode.user }}/.config/Code/User/keybindings.json"
-      owner: "{{ vscode.user }}"
-      group: "{{ vscode.user }}"
+      src: "{{ vscode_keybindings }}"
+      dest: "/home/{{ vscode_user }}/.config/Code/User/keybindings.json"
+      owner: "{{ vscode_user }}"
+      group: "{{ vscode_user }}"
       mode: u=rw,g=,o=
